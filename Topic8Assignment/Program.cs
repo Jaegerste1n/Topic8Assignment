@@ -204,6 +204,80 @@
                 Console.WriteLine("Appearences of that number: " + choiceAppear);
             }
 
+            Console.WriteLine("");
+            Console.WriteLine("Name a number you dislike.");
+            int dislikeChoice, dislikeAppear = 0;
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            int.TryParse(Console.ReadLine(), out dislikeChoice);
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            for (int iiii = 0; iiii < randyList.Capacity; iiii++)
+            {
+
+                if (randyList[iiii] == choice)
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Write(randyList[iiii] + ", ");
+
+                }
+                else if (randyList[iiii] == dislikeChoice)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    randyList[iiii] = 0;
+                    Console.Write(randyList[iiii] + ", ");
+                    dislikeAppear++;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.Write(randyList[iiii] + ", ");
+                }
+
+
+            }
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("");
+            Console.WriteLine("");
+            if (dislikeAppear == 0)
+            {
+                Console.WriteLine("None found.");
+            }
+            else
+            {
+                Console.WriteLine("Purges of that number: " + dislikeAppear);
+            }
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.ReadLine();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            for (int iiii = 0; iiii < randyList.Count; iiii++)
+            {
+                randyList[iiii] = 0;
+                Console.Write(randyList[iiii] + ", ");
+            }
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("All numbers purged. Haha.");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.ReadLine();
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            randyList.Clear();
+            for (int iiii = 0; iiii < randyList.Capacity; iiii++)
+            {
+                randyList.Add(generator.Next(minValue, maxValue));
+            }
+
+            for (int iiii = 0; iiii < randyList.Capacity; iiii++)
+            {
+                Console.Write(randyList[iiii] + ", ");
+            }
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("Fine, have a new one.");
+
         }
     }
 }
